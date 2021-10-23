@@ -4,26 +4,31 @@ import {getContrastColor} from '../helpers/tools';
 
 interface Props {
   content: string;
-  color?: string;
+  bgColor?: string;
   fill?: boolean;
   onPress(x: string): void;
+  selected?: boolean;
 }
 
 const CalculatorButton = ({
   content,
-  color = '#2d2d2d',
+  bgColor = '#2d2d2d',
   fill = false,
   onPress,
+  selected,
 }: Props) => {
-  const contrastColor = getContrastColor(color);
+  const contrastColor =
+    bgColor === '#ff9427' ? '#FFFFFF' : getContrastColor(bgColor);
+
+  const color = selected ? bgColor : contrastColor;
+  const backgroundColor = selected ? contrastColor : bgColor;
   const flexGrow = fill ? 1 : 0;
+
   return (
     <TouchableOpacity
       onPress={() => onPress(content)}
-      style={[styles.calculatorButton, {backgroundColor: color, flexGrow}]}>
-      <Text style={[styles.calculatorButtonText, {color: contrastColor}]}>
-        {content}
-      </Text>
+      style={[styles.calculatorButton, {backgroundColor, flexGrow}]}>
+      <Text style={[styles.calculatorButtonText, {color}]}>{content}</Text>
     </TouchableOpacity>
   );
 };
