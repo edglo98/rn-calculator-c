@@ -19,16 +19,20 @@ const CalculatorButton = ({
 }: Props) => {
   const contrastColor =
     bgColor === '#ff9427' ? '#FFFFFF' : getContrastColor(bgColor);
-
   const color = selected ? bgColor : contrastColor;
   const backgroundColor = selected ? contrastColor : bgColor;
   const flexGrow = fill ? 1 : 0;
+  const textAlign = fill ? 'left' : 'center';
+  const paddingLeft = fill ? 26 : 0;
 
   return (
     <TouchableOpacity
       onPress={() => onPress(content)}
       style={[styles.calculatorButton, {backgroundColor, flexGrow}]}>
-      <Text style={[styles.calculatorButtonText, {color}]}>{content}</Text>
+      <Text
+        style={[styles.calculatorButtonText, {color, textAlign, paddingLeft}]}>
+        {content}
+      </Text>
     </TouchableOpacity>
   );
 };
