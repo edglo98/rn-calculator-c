@@ -7,7 +7,7 @@ export const theme = StyleSheet.create({
   },
   calculatorContainer: {
     flex: 1,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     justifyContent: 'flex-end',
   },
   text: {
@@ -25,18 +25,9 @@ export const theme = StyleSheet.create({
     textAlign: 'right',
   },
 
-  calculatorButton: {
-    height: 80,
-    width: 80,
-    backgroundColor: '#9b9b9b',
-    borderRadius: 100,
-    justifyContent: 'center',
-  },
-  calculatorButtonText: {
-    textAlign: 'center',
-    padding: 10,
-    fontSize: 30,
-    color: 'black',
-    fontWeight: '400',
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 18,
   },
 });
