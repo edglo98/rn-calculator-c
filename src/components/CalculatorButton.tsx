@@ -1,22 +1,25 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {getContrastColor} from '../helpers/tools';
 
 interface Props {
   content: string;
   color?: string;
   fill?: boolean;
+  onPress(x: string): void;
 }
 
 const CalculatorButton = ({
   content,
   color = '#2d2d2d',
   fill = false,
+  onPress,
 }: Props) => {
   const contrastColor = getContrastColor(color);
   const flexGrow = fill ? 1 : 0;
   return (
     <TouchableOpacity
+      onPress={() => onPress(content)}
       style={[styles.calculatorButton, {backgroundColor: color, flexGrow}]}>
       <Text style={[styles.calculatorButtonText, {color: contrastColor}]}>
         {content}

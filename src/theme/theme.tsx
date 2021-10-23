@@ -18,6 +18,7 @@ export const theme = StyleSheet.create({
     color: 'white',
     fontSize: 60,
     textAlign: 'right',
+    marginBottom: 15,
   },
   prevResult: {
     color: 'rgba(255,255,255,0.5)',
